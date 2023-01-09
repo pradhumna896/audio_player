@@ -6,7 +6,9 @@ import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
 
 class DetailAudioPage extends StatefulWidget {
-  const DetailAudioPage({super.key});
+  final booksData;
+  final int index;
+  const DetailAudioPage({super.key,this.booksData,required this.index});
 
   @override
   State<DetailAudioPage> createState() => _DetailAudioPageState();
@@ -42,14 +44,16 @@ class _DetailAudioPageState extends State<DetailAudioPage> {
               elevation: 0,
               backgroundColor: Colors.transparent,
               leading: IconButton(
-                  onPressed: () {}, icon: Icon(Icons.arrow_back_ios)),
+                  onPressed: () {
+                    Navigator.of(context).pop();
+                  }, icon: const Icon(Icons.arrow_back_ios)),
               actions: [IconButton(onPressed: () {}, icon: Icon(Icons.search))],
             )),
         Positioned(
           left: 0,
           right: 0,
-          top: screenHeight * 0.2,
-          height: screenHeight * 0.36,
+          top: screenHeight * 0.22,
+          height: screenHeight * 0.38,
           child: Container(
             decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(40), color: Colors.white),
@@ -59,16 +63,16 @@ class _DetailAudioPageState extends State<DetailAudioPage> {
                   height: screenHeight * 0.1,
                 ),
                 Text(
-                  "THE WATER CURE",
+                  widget.booksData[widget.index]["title"],
                   style: TextStyle(
                     fontSize: 30,
                     fontWeight: FontWeight.bold,
                   ),
                 ),
-                Text("Martin Hyatt",style:  TextStyle(
+                Text(widget.booksData[widget.index]["text"],style:  TextStyle(
                   fontSize: 20
                 ),),
-                AudioFile(advancedPlayer: advancedPlayer,)
+                AudioFile(advancedPlayer: advancedPlayer,audioPath:widget.booksData[widget.index]["audio"])
               ],
             ),
           ),
@@ -77,7 +81,7 @@ class _DetailAudioPageState extends State<DetailAudioPage> {
           top:  screenHeight*0.12, 
           left: (screenWidth-150)/2,
           right: (screenWidth-150)/2,
-          height: screenHeight*0.16,
+          height: screenHeight*0.2,
           child: Container(
             decoration: BoxDecoration(
               color: AppColors.audioGreyBackground,
@@ -89,7 +93,7 @@ class _DetailAudioPageState extends State<DetailAudioPage> {
               decoration: BoxDecoration(
                 shape: BoxShape.circle,
                 border:Border.all(color:Colors.white,width:5),
-                image: const DecorationImage(fit:BoxFit.cover,image: AssetImage("img/pic-1.jpg"))
+                image:  DecorationImage(fit:BoxFit.cover,image: AssetImage(widget.booksData[widget.index]["img"],))
             ),
             ),
             

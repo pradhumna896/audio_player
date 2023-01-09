@@ -2,6 +2,7 @@ import 'dart:convert';
 
 import 'package:audio_player/app_color/app_color.dart' as AppColors;
 import 'package:audio_player/app_tabs.dart';
+import 'package:audio_player/detail_audio_page.dart';
 import 'package:flutter/material.dart';
 
 class HomePage extends StatefulWidget {
@@ -153,71 +154,76 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                           ListView.builder(
                               itemCount: books == null ? 0 : books!.length,
                               itemBuilder: (_, i) {
-                                return Container(
-                                  margin: const EdgeInsets.only(
-                                    left: 20,
-                                    right: 20,
-                                    top: 10,
-                                    bottom: 10,
-                                  ),
+                                return GestureDetector(
+                                  onTap: () {
+                                    Navigator.push(context, MaterialPageRoute(builder: (_)=>DetailAudioPage(booksData: books,index:i)));
+                                  },
                                   child: Container(
-                                    padding: const EdgeInsets.all(8),
-                                    decoration: BoxDecoration(
-                                        color: AppColors.tabVarViewColor,
-                                        borderRadius: BorderRadius.circular(10),
-                                        boxShadow: [
-                                          BoxShadow(
-                                              blurRadius: 2,
-                                              offset: Offset(0, 0),
-                                              color:
-                                                  Colors.grey.withOpacity(0.2))
-                                        ]),
-                                    child: Row(
-                                      children: [
-                                        Container(
-                                          width: 90,
-                                          height: 120,
-                                          decoration: BoxDecoration(
-                                              borderRadius:
-                                                  BorderRadius.circular(10),
-                                              image: DecorationImage(
-                                                  image: AssetImage(
-                                                      books![i]['img']),
-                                                  fit: BoxFit.cover)),
-                                        ),
-                                       const SizedBox(width: 10,),
-                                        Column(
-                                          crossAxisAlignment: CrossAxisAlignment.start,
-                                          children: [
-                                            Row(
-                                              children: [
-                                                Icon(Icons.star,size: 20,color: AppColors.startColor ,),
-                                                const SizedBox(width: 5,),
-                                                Text(books![i]["rating"],style: TextStyle(color: AppColors.menu2Color),)
-                                              ],
-                                            ),
-                                            Text(
-                                              
-                                              books![i]['title'],style: const TextStyle(fontSize: 16,fontWeight: FontWeight.bold),),
-                                            Text(books![i]['text'],style:  TextStyle(fontSize: 16,color: AppColors.subTitleText),),
-                                            Container(
-                                              height: 20, 
-                                              width: 60 , 
-                                              decoration:  BoxDecoration(
-                                                borderRadius: BorderRadius.circular(3), 
-                                                color:  AppColors.loveColor, 
-
+                                    margin: const EdgeInsets.only(
+                                      left: 20,
+                                      right: 20,
+                                      top: 10,
+                                      bottom: 10,
+                                    ),
+                                    child: Container(
+                                      padding: const EdgeInsets.all(8),
+                                      decoration: BoxDecoration(
+                                          color: AppColors.tabVarViewColor,
+                                          borderRadius: BorderRadius.circular(10),
+                                          boxShadow: [
+                                            BoxShadow(
+                                                blurRadius: 2,
+                                                offset: Offset(0, 0),
+                                                color:
+                                                    Colors.grey.withOpacity(0.2))
+                                          ]),
+                                      child: Row(
+                                        children: [
+                                          Container(
+                                            width: 90,
+                                            height: 120,
+                                            decoration: BoxDecoration(
+                                                borderRadius:
+                                                    BorderRadius.circular(10),
+                                                image: DecorationImage(
+                                                    image: AssetImage(
+                                                        books![i]['img']),
+                                                    fit: BoxFit.cover)),
+                                          ),
+                                         const SizedBox(width: 10,),
+                                          Column(
+                                            crossAxisAlignment: CrossAxisAlignment.start,
+                                            children: [
+                                              Row(
+                                                children: [
+                                                  Icon(Icons.star,size: 20,color: AppColors.startColor ,),
+                                                  const SizedBox(width: 5,),
+                                                  Text(books![i]["rating"],style: TextStyle(color: AppColors.menu2Color),)
+                                                ],
                                               ),
-                                              child: Text("Love",style: TextStyle(
-                                                fontSize: 12,
-                                                color: Colors.white
-                                              ),),
-                                              alignment: Alignment.center,
-                                            )
-                                            
-                                          ],
-                                        )
-                                      ],
+                                              Text(
+                                                
+                                                books![i]['title'],style: const TextStyle(fontSize: 16,fontWeight: FontWeight.bold),),
+                                              Text(books![i]['text'],style:  TextStyle(fontSize: 16,color: AppColors.subTitleText),),
+                                              Container(
+                                                height: 20, 
+                                                width: 60 , 
+                                                decoration:  BoxDecoration(
+                                                  borderRadius: BorderRadius.circular(3), 
+                                                  color:  AppColors.loveColor, 
+                                
+                                                ),
+                                                child: Text("Love",style: TextStyle(
+                                                  fontSize: 12,
+                                                  color: Colors.white
+                                                ),),
+                                                alignment: Alignment.center,
+                                              )
+                                              
+                                            ],
+                                          )
+                                        ],
+                                      ),
                                     ),
                                   ),
                                 );
