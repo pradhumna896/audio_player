@@ -38,7 +38,7 @@ class _AudioFileState extends State<AudioFile> {
 
     widget.advancedPlayer.onPlayerComplete.listen((event) {
       setState(() {
-        _position = Duration(seconds: 0);
+        _position = const Duration(seconds: 0);
         if(isRepeat==true){
           isPlaying = true;
         }else{

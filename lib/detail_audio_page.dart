@@ -2,8 +2,7 @@ import 'package:audio_player/audio_file.dart';
 import 'package:audioplayers/audioplayers.dart';
 import 'package:flutter/material.dart';
 import 'package:audio_player/app_color/app_color.dart' as AppColors;
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
+
 
 class DetailAudioPage extends StatefulWidget {
   final booksData;
@@ -64,12 +63,12 @@ class _DetailAudioPageState extends State<DetailAudioPage> {
                 ),
                 Text(
                   widget.booksData[widget.index]["title"],
-                  style: TextStyle(
+                  style:const TextStyle(
                     fontSize: 30,
                     fontWeight: FontWeight.bold,
                   ),
                 ),
-                Text(widget.booksData[widget.index]["text"],style:  TextStyle(
+                Text(widget.booksData[widget.index]["text"],style:const  TextStyle(
                   fontSize: 20
                 ),),
                 AudioFile(advancedPlayer: advancedPlayer,audioPath:widget.booksData[widget.index]["audio"])

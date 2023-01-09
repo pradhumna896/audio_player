@@ -173,7 +173,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                                           boxShadow: [
                                             BoxShadow(
                                                 blurRadius: 2,
-                                                offset: Offset(0, 0),
+                                                offset: const Offset(0, 0),
                                                 color:
                                                     Colors.grey.withOpacity(0.2))
                                           ]),
@@ -213,11 +213,11 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                                                   color:  AppColors.loveColor, 
                                 
                                                 ),
-                                                child: Text("Love",style: TextStyle(
+                                                alignment: Alignment.center,
+                                                child: const Text("Love",style: TextStyle(
                                                   fontSize: 12,
                                                   color: Colors.white
                                                 ),),
-                                                alignment: Alignment.center,
                                               )
                                               
                                             ],
