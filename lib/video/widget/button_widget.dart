@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
 
 class ButtonWidget extends StatelessWidget {
   final String text;
@@ -12,12 +10,12 @@ class ButtonWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return ElevatedButton(
       style: ElevatedButton.styleFrom(
-        minimumSize: Size.fromHeight(50),
-        shape: StadiumBorder()
+        minimumSize: const Size.fromHeight(50),
+        shape: const StadiumBorder()
       ),
         onPressed: onClicked,
         child: FittedBox(
-          child: Text(text,style: TextStyle(color: Colors.white,fontSize: 20),),
+          child: Text(text,style: const TextStyle(color: Colors.white,fontSize: 20),),
         ));
   }
 }

@@ -11,10 +11,7 @@ class AppTabs extends StatelessWidget {
     return Container(
       width: 120,
       height: 50,
-      child:Text(
-        text,
-        style: TextStyle(color: Colors.white,fontSize: 20),
-      ),
+      alignment: Alignment.center,
       decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(10),
           color: color,
@@ -24,7 +21,12 @@ class AppTabs extends StatelessWidget {
                 blurRadius: 7,
                 offset: const Offset(0, 0))
           ]),
-      alignment: Alignment.center,
+      child:Text(
+        text,
+        style: const TextStyle(color: Colors.white,fontSize: 20),
+      ),
+      
+     
     );
   }
 }

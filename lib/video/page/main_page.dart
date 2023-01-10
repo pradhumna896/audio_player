@@ -22,7 +22,6 @@ class _MainPageState extends State<MainPage> {
   MediaInfo? compressedVideoInfo;
   @override
   Widget build(BuildContext context) {
-
     return Scaffold(
       appBar: AppBar(
         actions: [TextButton(onPressed: clearSelection, child: Text("Clear"))],
@@ -34,10 +33,12 @@ class _MainPageState extends State<MainPage> {
       ),
     );
   }
-  void clearSelection(){
-    compressedVideoInfo =null;
-    fileVideo= null;
+
+  void clearSelection() {
+    compressedVideoInfo = null;
+    fileVideo = null;
   }
+
   Widget buildContent() {
     if (fileVideo == null) {
       return ButtonWidget(text: 'Pick Video', onClicked: pickVideo);
@@ -57,59 +58,71 @@ class _MainPageState extends State<MainPage> {
           const SizedBox(
             height: 20,
           ),
-
           ButtonWidget(text: 'Compress Video', onClicked: compressVideo)
         ],
       );
     }
   }
 
-  Widget buildVideoCompressedInfo(){
-    if(compressedVideoInfo == null) return Container();
-    final size = compressedVideoInfo!.filesize! /1000;
-     return Column(children: [
-      const Text("Compressed video info",style:TextStyle(fontSize: 24,fontWeight: FontWeight.bold)),
-      const SizedBox(height: 8,),
-      Text('$size KB',style:const TextStyle(fontSize: 20),),
-      const SizedBox(height: 8,),
-      Text('${compressedVideoInfo!.file}')
-     ],);
+  Widget buildVideoCompressedInfo() {
+    if (compressedVideoInfo == null) return Container();
+    final size = compressedVideoInfo!.filesize! / 1000;
+    return Column(
+      children: [
+        const Text("Compressed video info",
+            style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold)),
+        const SizedBox(
+          height: 8,
+        ),
+        Text(
+          '$size KB',
+          style: const TextStyle(fontSize: 20),
+        ),
+        const SizedBox(
+          height: 8,
+        ),
+        Text('${compressedVideoInfo!.file}')
+      ],
+    );
   }
 
-  Future compressVideo()async{
+  Future compressVideo() async {
     showDialog(
-      barrierDismissible: false,
-      context: context,
-       builder: (context){
-        return const Dialog(
-          child: ProgressDialogWidget(),
-        );
-       }
-       );
+        barrierDismissible: false,
+        context: context,
+        builder: (context) {
+          return const Dialog(
+            child: ProgressDialogWidget(),
+          );
+        });
     final info = await VideoCompressApi.compressVideo(fileVideo!);
 
     setState(() {
-      compressedVideoInfo =info;
+      compressedVideoInfo = info;
     });
     Navigator.of(context).pop();
   }
-   Widget buildVideoInfo(){
-    if(videoSize == null) return Container();
-    final size = videoSize! /1000;
+
+  Widget buildVideoInfo() {
+    if (videoSize == null) return Container();
+    final size = videoSize! / 1000;
     return Column(
       children: [
-        const Text('Original Video info',style: TextStyle(
-          fontSize:24, fontWeight: FontWeight.bold
-
-        ),),
-        const SizedBox(height: 10,), 
-        Text('$size KB',style: const TextStyle(
-          fontSize:24, fontWeight: FontWeight.bold
-
-        ),),
+        const Text(
+          'Original Video info',
+          style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+        ),
+        const SizedBox(
+          height: 10,
+        ),
+        Text(
+          '$size KB',
+          style: const TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+        ),
       ],
     );
-   }
+  }
+
   Widget buildThumbnail() => thumbnailBytes == null
       ? const CircularProgressIndicator()
       : Image.memory(

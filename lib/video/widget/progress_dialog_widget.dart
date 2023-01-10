@@ -1,7 +1,4 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
 import 'package:video_compress/video_compress.dart';
 
 class ProgressDialogWidget extends StatefulWidget {
@@ -16,7 +13,7 @@ class _ProgressDialogWidgetState extends State<ProgressDialogWidget> {
   double? progress;
   @override
   void initState() {
-    // TODO: implement initState
+    
     super.initState();
 
     subscription = VideoCompress.compressProgress$.subscribe((progress) {
@@ -52,7 +49,7 @@ class _ProgressDialogWidgetState extends State<ProgressDialogWidget> {
           const SizedBox(height: 16,),
           ElevatedButton(onPressed: (){
             VideoCompress.cancelCompression();
-          }, child: Text("Cancel"))
+          }, child: const Text("Cancel"))
         ],
       ),
     );
