@@ -4,18 +4,23 @@ class ButtonWidget extends StatelessWidget {
   final String text;
   final VoidCallback onClicked;
 
-  const ButtonWidget({super.key, required this.text, required this.onClicked});
+  const ButtonWidget({
+    super.key, 
+    required this.text, 
+    required this.onClicked});
 
   @override
   Widget build(BuildContext context) {
     return ElevatedButton(
-      style: ElevatedButton.styleFrom(
-        minimumSize: const Size.fromHeight(50),
-        shape: const StadiumBorder()
-      ),
+        style: ElevatedButton.styleFrom(
+            minimumSize: const Size.fromHeight(50),
+            shape: const StadiumBorder()),
         onPressed: onClicked,
         child: FittedBox(
-          child: Text(text,style: const TextStyle(color: Colors.white,fontSize: 20),),
+          child: Text(
+            text,
+            style: const TextStyle(color:Colors.white, fontSize: 20),
+          ),
         ));
   }
 }
