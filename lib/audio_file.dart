@@ -11,13 +11,13 @@ class AudioFile extends StatefulWidget {
 }
 
 class _AudioFileState extends State<AudioFile> {
-  Duration _duration = Duration();
-  Duration _position = Duration();
+  Duration _duration = const Duration();
+  Duration _position = const Duration();
   bool isPlaying = false;
   bool isPaused = false;
   bool isRepeat = false;
   Color color =Colors.black;
-  List<IconData> _icons = [
+  final List<IconData> _icons = [
     Icons.play_circle_fill,
     Icons.pause_circle_filled,
   ];
@@ -47,6 +47,11 @@ class _AudioFileState extends State<AudioFile> {
         }
       });
     });
+  }
+  @override
+  void dispose() {
+    widget.advancedPlayer.pause();
+    super.dispose();
   }
 
   Widget btnStart() {
@@ -153,30 +158,28 @@ class _AudioFileState extends State<AudioFile> {
           
         });
       }
-    }, icon: Icon(Icons.next_plan,));
+    }, icon: const Icon(Icons.next_plan,));
   }
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      child: Column(
-        children: [
-          Padding(
-            padding: const EdgeInsets.only(left: 20, right: 20),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Text(_position.toString().split(".")[0],
-                    style: const TextStyle(fontSize: 16)),
-                Text(_duration.toString().split(".")[0],
-                    style: const TextStyle(fontSize: 16))
-              ],
-            ),
+    return Column(
+      children: [
+        Padding(
+          padding: const EdgeInsets.only(left: 20, right: 20),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Text(_position.toString().split(".")[0],
+                  style: const TextStyle(fontSize: 16)),
+              Text(_duration.toString().split(".")[0],
+                  style: const TextStyle(fontSize: 16))
+            ],
           ),
-          slider(),
-          loadAsset()
-        ],
-      ),
+        ),
+        slider(),
+        loadAsset()
+      ],
     );
   }
 }

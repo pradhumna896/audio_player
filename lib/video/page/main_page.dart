@@ -4,7 +4,6 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:video_compress/video_compress.dart';
-
 import '../api/video_compress_api.dart';
 import '../widget/progress_dialog_widget.dart';
 
