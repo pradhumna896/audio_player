@@ -46,5 +46,53 @@
         "img":"img/pic-6.jpg",
         "audio":"https://file.api.audio/demo.mp3"
 
+    },
+    {
+        "rating":"4.5",
+        "title":"THE WATER CURE",
+        "text":"Martin Hyatt",
+        "img":"img/pic-1.jpg",
+        "audio":"https://file.api.audio/demo.mp3"
+
+    },
+    {
+        "rating":"4.5",
+        "title":"THE INDIA STORY",
+        "text":"Bimal Jalal",
+        "img":"img/pic-2.jpg",
+        "audio":"https://file.api.audio/demo.mp3"
+
+    },
+    {
+        "rating":"4.5",
+        "title":"Politicians, Citizens",
+        "text":"Rasheed Kidwai ",
+        "img":"img/pic-3.jpg",
+        "audio":"https://file.api.audio/demo.mp3"
+
+    },
+    {
+        "rating":"4.5",
+        "title":"A Place Called Home",
+        "text":"Preeti Shenoy",
+        "img":"img/pic-4.jpg",
+        "audio":"https://file.api.audio/demo.mp3"
+
+    },
+    {
+        "rating":"4.5",
+        "title":"Formula for Success",
+        "text":"Vinit Karnik",
+        "img":"img/pic-5.jpg",
+        "audio":"https://file.api.audio/demo.mp3"
+
+    },
+    {
+        "rating":"4.5",
+        "title":"Hear Yourself",
+        "text":"Prem Rawat",
+        "img":"img/pic-6.jpg",
+        "audio":"https://file.api.audio/demo.mp3"
+
     }
 ]
