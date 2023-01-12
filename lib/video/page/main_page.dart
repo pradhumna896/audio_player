@@ -23,7 +23,9 @@ class _MainPageState extends State<MainPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        actions: [TextButton(onPressed: clearSelection, child: Text("Clear"))],
+        backgroundColor: Colors.deepOrange,
+        actions: [TextButton(
+          onPressed: clearSelection, child:const Text("Clear",style: TextStyle(fontSize:16,color: Colors.white),))],
       ),
       body: Container(
         alignment: Alignment.center,

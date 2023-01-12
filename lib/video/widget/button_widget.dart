@@ -13,6 +13,7 @@ class ButtonWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return ElevatedButton(
         style: ElevatedButton.styleFrom(
+            backgroundColor:  Colors.deepOrange,
             minimumSize: const Size.fromHeight(50),
             shape: const StadiumBorder()),
         onPressed: onClicked,
