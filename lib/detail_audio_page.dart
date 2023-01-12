@@ -5,6 +5,7 @@ import 'package:audio_player/app_color/app_color.dart' as AppColors;
 
 
 class DetailAudioPage extends StatefulWidget {
+  // ignore: prefer_typing_uninitialized_variables
   final booksData;
   final int index;
   const DetailAudioPage({super.key,this.booksData,required this.index});

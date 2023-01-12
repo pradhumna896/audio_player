@@ -1,6 +1,4 @@
-import 'package:audio_player/video/page/main_page.dart';
 import 'package:flutter/material.dart';
-
 import 'home_page.dart';
 
 void main() {

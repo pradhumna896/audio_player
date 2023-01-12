@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:audio_player/app_color/app_color.dart' as AppColors;
 
 class AppTabs extends StatelessWidget {
   final Color color;
