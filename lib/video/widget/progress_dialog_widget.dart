@@ -13,7 +13,6 @@ class _ProgressDialogWidgetState extends State<ProgressDialogWidget> {
   double? progress;
   @override
   void initState() {
-    
     super.initState();
 
     subscription = VideoCompress.compressProgress$.subscribe((progress) {
@@ -41,15 +40,21 @@ class _ProgressDialogWidgetState extends State<ProgressDialogWidget> {
             'Compressing Video...',
             style: TextStyle(fontSize: 20),
           ),
-          const SizedBox(height: 20,),
+          const SizedBox(
+            height: 20,
+          ),
           LinearProgressIndicator(
             value: value,
             minHeight: 12,
           ),
-          const SizedBox(height: 16,),
-          ElevatedButton(onPressed: (){
-            VideoCompress.cancelCompression();
-          }, child: const Text("Cancel"))
+          const SizedBox(
+            height: 16,
+          ),
+          ElevatedButton(
+              onPressed: () {
+                VideoCompress.cancelCompression();
+              },
+              child: const Text("Cancel"))
         ],
       ),
     );

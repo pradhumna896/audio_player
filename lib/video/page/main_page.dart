@@ -24,8 +24,14 @@ class _MainPageState extends State<MainPage> {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.deepOrange,
-        actions: [TextButton(
-          onPressed: clearSelection, child:const Text("Clear",style: TextStyle(fontSize:16,color: Colors.white),))],
+        actions: [
+          TextButton(
+              onPressed: clearSelection,
+              child: const Text(
+                "Clear",
+                style: TextStyle(fontSize: 16, color: Colors.white),
+              ))
+        ],
       ),
       body: Container(
         alignment: Alignment.center,
