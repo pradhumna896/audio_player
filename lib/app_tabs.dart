@@ -20,12 +20,10 @@ class AppTabs extends StatelessWidget {
                 blurRadius: 7,
                 offset: const Offset(0, 0))
           ]),
-      child:Text(
+      child: Text(
         text,
-        style: const TextStyle(color: Colors.white,fontSize: 20),
+        style: const TextStyle(color: Colors.white, fontSize: 20),
       ),
-      
-     
     );
   }
 }

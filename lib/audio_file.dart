@@ -4,7 +4,8 @@ import 'package:flutter/material.dart';
 class AudioFile extends StatefulWidget {
   final AudioPlayer advancedPlayer;
   final String audioPath;
-  const AudioFile({super.key, required this.advancedPlayer ,required this.audioPath});
+  const AudioFile(
+      {super.key, required this.advancedPlayer, required this.audioPath});
 
   @override
   State<AudioFile> createState() => _AudioFileState();
@@ -16,7 +17,7 @@ class _AudioFileState extends State<AudioFile> {
   bool isPlaying = false;
   bool isPaused = false;
   bool isRepeat = false;
-  Color color =Colors.black;
+  Color color = Colors.black;
   final List<IconData> _icons = [
     Icons.play_circle_fill,
     Icons.pause_circle_filled,
@@ -39,15 +40,16 @@ class _AudioFileState extends State<AudioFile> {
     widget.advancedPlayer.onPlayerComplete.listen((event) {
       setState(() {
         _position = const Duration(seconds: 0);
-        if(isRepeat==true){
+        if (isRepeat == true) {
           isPlaying = true;
-        }else{
-        isPlaying = false;
-        isRepeat = false;
+        } else {
+          isPlaying = false;
+          isRepeat = false;
         }
       });
     });
   }
+
   @override
   void dispose() {
     widget.advancedPlayer.pause();
@@ -88,7 +90,19 @@ class _AudioFileState extends State<AudioFile> {
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.center,
         mainAxisAlignment: MainAxisAlignment.center,
-        children: [btnRepeat(), btnSlow(), const SizedBox(width: 15,), btnStart(),const SizedBox(width: 15,), btnFast(),btnLoop()],
+        children: [
+          btnRepeat(),
+          btnSlow(),
+          const SizedBox(
+            width: 15,
+          ),
+          btnStart(),
+          const SizedBox(
+            width: 15,
+          ),
+          btnFast(),
+          btnLoop()
+        ],
       ),
     );
   }
@@ -120,7 +134,9 @@ class _AudioFileState extends State<AudioFile> {
         onPressed: () {
           widget.advancedPlayer.setPlaybackRate(1.5);
         },
-        icon: const Icon(Icons.fast_forward, ));
+        icon: const Icon(
+          Icons.fast_forward,
+        ));
   }
 
   Widget btnSlow() {
@@ -128,37 +144,44 @@ class _AudioFileState extends State<AudioFile> {
         onPressed: () {
           widget.advancedPlayer.setPlaybackRate(0.5);
         },
-        icon: const Icon(Icons.fast_rewind,));
+        icon: const Icon(
+          Icons.fast_rewind,
+        ));
   }
 
-  Widget btnRepeat(){
-    return IconButton(onPressed: (){
-      if(isRepeat == false){
-        widget.advancedPlayer.setReleaseMode(ReleaseMode.loop);
-        setState(() {
-          isRepeat =true;
-          color = Colors.blue;
-        });
-      }else if(isRepeat == true){
-        widget.advancedPlayer.setReleaseMode(ReleaseMode.release);
-        setState(() {
-          color =Colors.black;
-          isRepeat = false;
-        });
-      }
-    }, icon: Icon(Icons.loop,color:color));
+  Widget btnRepeat() {
+    return IconButton(
+        onPressed: () {
+          if (isRepeat == false) {
+            widget.advancedPlayer.setReleaseMode(ReleaseMode.loop);
+            setState(() {
+              isRepeat = true;
+              color = Colors.blue;
+            });
+          } else if (isRepeat == true) {
+            widget.advancedPlayer.setReleaseMode(ReleaseMode.release);
+            setState(() {
+              color = Colors.black;
+              isRepeat = false;
+            });
+          }
+        },
+        icon: Icon(Icons.loop, color: color));
   }
 
-   Widget btnLoop(){
-    return IconButton(onPressed: (){
-      if(isRepeat == false){
-        widget.advancedPlayer.setReleaseMode(ReleaseMode.loop);
-        setState(() {
-          isRepeat =true;
-          
-        });
-      }
-    }, icon: const Icon(Icons.next_plan,));
+  Widget btnLoop() {
+    return IconButton(
+        onPressed: () {
+          if (isRepeat == false) {
+            widget.advancedPlayer.setReleaseMode(ReleaseMode.loop);
+            setState(() {
+              isRepeat = true;
+            });
+          }
+        },
+        icon: const Icon(
+          Icons.next_plan,
+        ));
   }
 
   @override

@@ -156,7 +156,11 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                               itemBuilder: (_, i) {
                                 return GestureDetector(
                                   onTap: () {
-                                    Navigator.push(context, MaterialPageRoute(builder: (_)=>DetailAudioPage(booksData: books,index:i)));
+                                    Navigator.push(
+                                        context,
+                                        MaterialPageRoute(
+                                            builder: (_) => DetailAudioPage(
+                                                booksData: books, index: i)));
                                   },
                                   child: Container(
                                     margin: const EdgeInsets.only(
@@ -169,13 +173,14 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                                       padding: const EdgeInsets.all(8),
                                       decoration: BoxDecoration(
                                           color: AppColors.tabVarViewColor,
-                                          borderRadius: BorderRadius.circular(10),
+                                          borderRadius:
+                                              BorderRadius.circular(10),
                                           boxShadow: [
                                             BoxShadow(
                                                 blurRadius: 2,
                                                 offset: const Offset(0, 0),
-                                                color:
-                                                    Colors.grey.withOpacity(0.2))
+                                                color: Colors.grey
+                                                    .withOpacity(0.2))
                                           ]),
                                       child: Row(
                                         children: [
@@ -190,36 +195,61 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                                                         books![i]['img']),
                                                     fit: BoxFit.cover)),
                                           ),
-                                         const SizedBox(width: 10,),
+                                          const SizedBox(
+                                            width: 10,
+                                          ),
                                           Column(
-                                            crossAxisAlignment: CrossAxisAlignment.start,
+                                            crossAxisAlignment:
+                                                CrossAxisAlignment.start,
                                             children: [
                                               Row(
                                                 children: [
-                                                  Icon(Icons.star,size: 20,color: AppColors.startColor ,),
-                                                  const SizedBox(width: 5,),
-                                                  Text(books![i]["rating"],style: TextStyle(color: AppColors.menu2Color),)
+                                                  Icon(
+                                                    Icons.star,
+                                                    size: 20,
+                                                    color: AppColors.startColor,
+                                                  ),
+                                                  const SizedBox(
+                                                    width: 5,
+                                                  ),
+                                                  Text(
+                                                    books![i]["rating"],
+                                                    style: TextStyle(
+                                                        color: AppColors
+                                                            .menu2Color),
+                                                  )
                                                 ],
                                               ),
                                               Text(
-                                                
-                                                books![i]['title'],style: const TextStyle(fontSize: 16,fontWeight: FontWeight.bold),),
-                                              Text(books![i]['text'],style:  TextStyle(fontSize: 16,color: AppColors.subTitleText),),
+                                                books![i]['title'],
+                                                style: const TextStyle(
+                                                    fontSize: 16,
+                                                    fontWeight:
+                                                        FontWeight.bold),
+                                              ),
+                                              Text(
+                                                books![i]['text'],
+                                                style: TextStyle(
+                                                    fontSize: 16,
+                                                    color:
+                                                        AppColors.subTitleText),
+                                              ),
                                               Container(
-                                                height: 20, 
-                                                width: 60 , 
-                                                decoration:  BoxDecoration(
-                                                  borderRadius: BorderRadius.circular(3), 
-                                                  color:  AppColors.loveColor, 
-                                
+                                                height: 20,
+                                                width: 60,
+                                                decoration: BoxDecoration(
+                                                  borderRadius:
+                                                      BorderRadius.circular(3),
+                                                  color: AppColors.loveColor,
                                                 ),
                                                 alignment: Alignment.center,
-                                                child: const Text("Love",style: TextStyle(
-                                                  fontSize: 12,
-                                                  color: Colors.white
-                                                ),),
+                                                child: const Text(
+                                                  "Love",
+                                                  style: TextStyle(
+                                                      fontSize: 12,
+                                                      color: Colors.white),
+                                                ),
                                               )
-                                              
                                             ],
                                           )
                                         ],
